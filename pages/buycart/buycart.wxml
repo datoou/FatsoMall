@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="navbar" style="height:{{height}}rpx">
+	<text class="title">购物车</text>
+</view>
+
+
+<scroll-view class="container" style="top:{{height}}rpx;" scroll-y="{{true}}" bindscrolltolower="reachBottom">
+
+
+	<van-card wx:for="{{goods}}" num="{{item.num}}" tag="{{item.category}}" price="{{item.price}}" title="{{item.title}}" thumb="{{serverPath+'/static/upload/'+item.imgs[0].filename}}">
+		<view slot="footer">
+			<van-button size="mini">+</van-button>
+			<van-button size="mini">-</van-button>
+		</view>
+	</van-card>
+</scroll-view>
+<van-tabbar active="{{ active }}" bind:change="onChange">
+	<van-tabbar-item icon="home-o">首页</van-tabbar-item>
+	<van-tabbar-item icon="fire-o">分类</van-tabbar-item>
+	<van-tabbar-item icon="shopping-cart-o">购物车</van-tabbar-item>
+	<van-tabbar-item icon="contact">个人</van-tabbar-item>
+</van-tabbar>
